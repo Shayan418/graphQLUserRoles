@@ -1,0 +1,16 @@
+type Role {
+	id: ID!
+	roleName: String!
+	description: String!
+}
+
+# Root
+extend type Query {
+	findAllRoles: [Role]!
+	countRoles: Int!
+}
+
+# Root
+extend type Mutation {
+	createRole(roleName: String!, description: String!): Role!
+}

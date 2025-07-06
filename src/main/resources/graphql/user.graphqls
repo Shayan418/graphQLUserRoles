@@ -1,0 +1,24 @@
+type User {
+	id: ID!
+	username: String!
+	email: String!
+	firstName: String!
+	lastName: String!
+	roles: [Role]
+}
+
+# Root
+type Query {
+	findUserById(id: ID): User!
+	findUserByUsername(username: String!): User!
+	findAllUsers: [User]!
+	countUsers: Int!
+}
+
+# Root
+type Mutation {
+	createUser(username: String!, email: String!, firstName: String!, lastName:String!, roleIds: [ID]): User!
+	addUserRole(id: ID!, roleIds: [ID]): User!
+	removeUserRole(id: ID!, roleIds: [ID]): User!
+	deleteUser(id: ID!): Boolean
+}
