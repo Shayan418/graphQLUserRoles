@@ -1,5 +1,6 @@
-# Spring Boot + GraphQL + MySQL (Backend and Frontend)
+# Spring Boot + GraphQL
 
+Manage User and their Roles using GraphQL API backend
 
 
 
