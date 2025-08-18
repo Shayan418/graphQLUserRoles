@@ -3,6 +3,9 @@ package com.demo.springgraphql.userroles.resolver;
 import com.demo.springgraphql.userroles.model.Role;
 import com.demo.springgraphql.userroles.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import com.demo.springgraphql.userroles.model.User;
@@ -32,8 +35,12 @@ public class Query implements GraphQLQueryResolver {
 		return userRepository.findAll();
 	}
 
-	public Iterable<Role> findAllRoles(){
-		return roleRepository.findAll();
+//	public Iterable<Role> findAllRoles(){
+//		return roleRepository.findAll();
+//	}
+	public Page<Role> findAllRoles(int page, int size){
+		Pageable pageable = PageRequest.of(page, size);
+		return roleRepository.findAll(pageable);
 	}
 
 	public long countUsers() {

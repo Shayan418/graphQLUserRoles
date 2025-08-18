@@ -6,7 +6,7 @@ type Role {
 
 # Root
 extend type Query {
-	findAllRoles: [Role]!
+	findAllRoles(page: Int!, size: Int!): [Role]!
 	countRoles: Int!
 }
 
