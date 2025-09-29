@@ -7,12 +7,20 @@ type User {
 	roles: [Role]
 }
 
+type Role {
+	id: ID!
+	roleName: String!
+	description: String!
+}
+
 # Root
 type Query {
-	findUserById(id: ID): User!
-	findUserByUsername(username: String!): User!
+	findUserById(id: ID): User
+	findUserByUsername(username: String!): User
 	findAllUsers(page: Int!, size: Int!): [User]!
 	countUsers: Int!
+	findAllRoles(page: Int!, size: Int!): [Role]!
+	countRoles: Int!
 }
 
 # Root
@@ -21,4 +29,5 @@ type Mutation {
 	addUserRole(id: ID!, roleIds: [ID]): User!
 	removeUserRole(id: ID!, roleIds: [ID]): User!
 	deleteUser(id: ID!): Boolean
+	createRole(roleName: String!, description: String!): Role!
 }
