@@ -31,8 +31,9 @@ public class Query implements GraphQLQueryResolver {
 		return userRepository.findByUsername(username).orElseThrow(null);
 	}
 
-	public Iterable<User> findAllUsers() {
-		return userRepository.findAll();
+	public Page<User> findAllUsers(int page, int size) {
+		Pageable pageable = PageRequest.of(page, size);
+		return userRepository.findAll(pageable);
 	}
 
 //	public Iterable<Role> findAllRoles(){

@@ -11,7 +11,7 @@ type User {
 type Query {
 	findUserById(id: ID): User!
 	findUserByUsername(username: String!): User!
-	findAllUsers: [User]!
+	findAllUsers(page: Int!, size: Int!): [User]!
 	countUsers: Int!
 }
 
